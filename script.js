@@ -11,14 +11,13 @@ console.log(characters);
 let copyBtn = document.getElementById("copyMe");
 
 let howLong = document.getElementById("howLong");
-let chkUpperCase = document.getElementById("chkUpperCase");
-let chkLowerCase = document.getElementById("chkLowerCase");
-let chkNumbers = document.getElementById("chkNumbers");
-let chkSpecialChars = document.getElementById("chkSpecialChars");
+let chkUpperCase = document.getElementById("chkUpperCase").checked;
+let chkLowerCase = document.getElementById("chkLowerCase").checked;
+let chkNumbers = document.getElementById("chkNumbers").checked;
+let chkSpecialChars = document.getElementById("chkSpecialChars").checked;
 
 
-let passLength = parseInt(document.getElementById(howLong));
-
+let passLength = parseInt(document.getElementById("howLong"));
 
 
 let generatePassword = function() { 
@@ -43,6 +42,7 @@ let generatePassword = function() {
     }
   }
     console.log(generatePassword);
+ 
   };
 
 // This is not currently working, you need to fix it
