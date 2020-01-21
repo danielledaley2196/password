@@ -5,45 +5,53 @@ let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 let numerals = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 let specialChars = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "{", "|", "}", "~"];
 
-let characters = upperCase.concat(lowerCase, numerals, specialChars);
-console.log(characters);
+// let characters = upperCase.concat(lowerCase, numerals, specialChars);
+//console.log(characters);
 
 let copyBtn = document.getElementById("copyMe");
 
 let howLong = document.getElementById("howLong");
-let chkUpperCase = document.getElementById("chkUpperCase").checked;
-let chkLowerCase = document.getElementById("chkLowerCase").checked;
-let chkNumbers = document.getElementById("chkNumbers").checked;
-let chkSpecialChars = document.getElementById("chkSpecialChars").checked;
+let chkUpperCase = document.getElementById("chkUpperCase");
+let chkLowerCase = document.getElementById("chkLowerCase");
+let chkNumbers = document.getElementById("chkNumbers");
+let chkSpecialChars = document.getElementById("chkSpecialChars");
 
 
-let passLength = parseInt(document.getElementById("howLong"));
+let inputLength = document.getElementById("howLong");
+
+console.log(inputLength);
 
 
-let generatePassword = function() { 
+function generatePassword() { 
+  
+  let passLength = inputLength.value;
+  console.log(passLength);
+
+  let characters = "";
+
+
   if (chkUpperCase.checked) {
-    chkUpperCase += upperCase;
-    console.log(chkUpperCase);
+    characters += upperCase;
+    console.log(characters);
   }
 
   if (chkLowerCase.checked) {
-    chkLowerCase += lowerCase;
+    characters += lowerCase;
   }
   if (chkNumbers.checked) {
-    chkNumbers += numerals;
+    characters += numerals;
   }
   if (chkSpecialChars.checked) {
-    chkSpecialChars += specialChars;
+    characters += specialChars;
   }
   for (i=0; i < passLength; i++) {
-    if //create your loop here please tieing everything together 
-    (i <= 0) {
-      characters[(Math.floor(Math.random) * characters.length)];
+    let randPos = Math.floor(Math.random() * characters.length);
+    console.log (randPos);
     }
   }
-    console.log(generatePassword);
+    // console.log(generatePassword);
+
  
-  };
 
 // This is not currently working, you need to fix it
 
@@ -56,7 +64,7 @@ let generatePassword = function() {
 
 // Write password to the #password input
 function writePassword() {
-  let password = generatePassword ();
+  let password = generatePassword();
 
   let passwordText = document.querySelector("#password");
 
